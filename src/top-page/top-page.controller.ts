@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   HttpCode,
+  Injectable,
   Param,
   Patch,
   Post,
@@ -13,6 +14,7 @@ import { FindTopPageDto } from './dto/find-top-page.dto';
 import { ConfigService } from '@nestjs/config';
 
 @Controller('top-page')
+@Injectable()
 export class TopPageController {
   constructor(private readonly configService: ConfigService) {}
 
