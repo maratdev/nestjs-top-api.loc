@@ -9,7 +9,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { TopPageModel } from './top-page.model';
+import { TopPageModel } from './models/top-page.model';
 import { FindTopPageDto } from './dto/find-top-page.dto';
 import { ConfigService } from '@nestjs/config';
 

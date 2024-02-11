@@ -8,7 +8,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { ProductModel } from './product.model';
+import { ProductModel } from './models/product.model';
 import { FindProductDto } from './dto/find-product.dto';
 
 @Controller('product')
