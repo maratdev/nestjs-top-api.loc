@@ -14,7 +14,7 @@ const testDto: CreateReviewDto = {
   rating: 5,
   productId,
 };
-
+console.log(productId);
 describe('AppController (e2e)', () => {
   let app: INestApplication;
   let createdId: string;
@@ -48,6 +48,16 @@ describe('AppController (e2e)', () => {
   });
 
   it('/review/byProduct/:productId (GET) - success', async () => {
+    return request(app.getHttpServer())
+      .get('/review/byProduct/' + '65f19152a62b5ae68497ea05')
+      .expect(200)
+      .then(({ body }: request.Response) => {
+        expect(body.length).toBe(1);
+        return;
+      });
+  });
+
+  it('/review/byProduct/:productId (GET) - fail', async () => {
     return request(app.getHttpServer())
       .get('/review/byProduct/' + productId)
       .expect(200)

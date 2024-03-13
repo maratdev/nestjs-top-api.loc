@@ -13,6 +13,7 @@ import {
 import { CreateReviewDto } from './dto/create-review.dto';
 import { ReviewService } from './review.service';
 import { REVIEW_NOT_FOUND } from './review.constants';
+import { Types } from 'mongoose';
 
 @Controller('review')
 export class ReviewController {
@@ -33,7 +34,7 @@ export class ReviewController {
   }
 
   @Get('byProduct/:productId')
-  async getByproduct(@Param() productId: string) {
+  async getByproduct(@Param('productId') productId: Types.ObjectId) {
     return this.reviewService.findByProductId(productId);
   }
 }

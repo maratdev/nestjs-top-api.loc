@@ -22,8 +22,12 @@ describe('ReviewService (Unit)', () => {
     service = module.get<ReviewService>(ReviewService);
   });
 
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
   it('findByProductId working', async () => {
-    const id = new Types.ObjectId().toHexString();
+    const id = new Types.ObjectId();
     reviewRepositoryFactory()
       .find()
       .exec.mockReturnValueOnce([{ productId: id }]);

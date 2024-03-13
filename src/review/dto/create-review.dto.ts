@@ -1,4 +1,4 @@
-import { IsNumber, IsString, Max, Min } from 'class-validator';
+import { IsNumber, IsOptional, IsString, Max, Min } from 'class-validator';
 
 export class CreateReviewDto {
   @IsString()
@@ -10,10 +10,11 @@ export class CreateReviewDto {
 
   @Max(5)
   @Min(1, {
-    message: 'Рейтинг не может быть меньше 1',
+    message: 'Рейтинг не может быть меньше 1 ',
   })
   @IsNumber()
   rating: number;
+  @IsOptional()
   @IsString()
   productId: string;
 }
