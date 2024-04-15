@@ -4,7 +4,8 @@ import { HydratedDocument, Types } from 'mongoose';
 export type ReviewDocument = HydratedDocument<ReviewModel>;
 
 @Schema({
-  collection: 'review',
+  collection: 'reviews',
+  timestamps: true,
 })
 export class ReviewModel {
   @Prop()

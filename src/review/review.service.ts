@@ -12,7 +12,10 @@ export class ReviewService {
   ) {}
 
   async create(dto: CreateReviewDto): Promise<ReviewModel> {
-    return this.reviewModel.create({ ...dto, productId: new Types.ObjectId() });
+    return this.reviewModel.create({
+      ...dto,
+      productId: new Types.ObjectId(dto.productId),
+    });
   }
 
   async delete(id: string): Promise<HydratedDocument<ReviewModel> | null> {

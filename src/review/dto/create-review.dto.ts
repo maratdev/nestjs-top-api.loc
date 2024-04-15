@@ -1,4 +1,12 @@
-import { IsNumber, IsOptional, IsString, Max, Min } from 'class-validator';
+import {
+  IsMongoId,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
+import { Types } from 'mongoose';
 
 export class CreateReviewDto {
   @IsString()
@@ -15,6 +23,6 @@ export class CreateReviewDto {
   @IsNumber()
   rating: number;
   @IsOptional()
-  @IsString()
-  productId: string;
+  @IsMongoId()
+  productId: Types.ObjectId;
 }

@@ -17,6 +17,7 @@ import { REVIEW_NOT_FOUND } from './review.constants';
 import { Types } from 'mongoose';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { UserEmail } from '../decorators/user-email.decorator';
+import { IdValidationPipe } from '../pipes/validation.pipe';
 
 @Controller('review')
 export class ReviewController {
@@ -30,7 +31,7 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  async delete(@Param('id') id: string) {
+  async delete(@Param('id', IdValidationPipe) id: string) {
     const deleteDoc = await this.reviewService.delete(id);
     if (!deleteDoc) {
       throw new HttpException(REVIEW_NOT_FOUND, HttpStatus.NOT_FOUND);
@@ -39,7 +40,7 @@ export class ReviewController {
   @UseGuards(JwtAuthGuard)
   @Get('byProduct/:productId')
   async getByproduct(
-    @Param('productId') productId: Types.ObjectId,
+    @Param('productId', IdValidationPipe) productId: Types.ObjectId,
     @UserEmail() email: string,
   ) {
     console.log(email);
