@@ -1,11 +1,4 @@
 name: Publish Docker Image
-inputs:
-  token:
-    description: 'GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)'
-    default: ${{ github.token }}
-  repository:
-    description: 'The target GitHub repository containing the pull request'
-    default: ${{ github.repository }}
 on:
   push:
     branches: [ main ]
@@ -23,4 +16,5 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "develop"
-          env: TOKEN=${{ inputs.token }}
+        env:
+          TOKEN: ${{ inputs.token }}
