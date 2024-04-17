@@ -10,6 +10,7 @@ export class UsersService {
   async getByEmail(email: string) {
     return this.userModel.findOne({ email });
   }
+
   async createUser({ email, password }: { email: string; password: string }) {
     const newUser = new this.userModel({ email, password });
     return newUser.save();

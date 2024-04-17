@@ -10,10 +10,8 @@ class ProductCharacteristic {
   value: string;
 }
 
-@Schema()
+@Schema({ collection: 'products', timestamps: true })
 export class ProductModel {
-  @Prop()
-  _id: string;
   @Prop()
   image: string;
   @Prop()
@@ -21,11 +19,9 @@ export class ProductModel {
   @Prop()
   price: number;
   @Prop()
-  oldPrice: number;
+  oldPrice?: number;
   @Prop()
   credit: number;
-  @Prop()
-  calculatedRating: number;
   @Prop()
   description: string;
   @Prop()
@@ -46,11 +42,6 @@ export class ProductModel {
     _id: false,
   })
   characteristics: ProductCharacteristic[];
-
-  @Prop()
-  createdAt?: Date;
-  @Prop()
-  updatedAt?: Date;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(ProductModel);

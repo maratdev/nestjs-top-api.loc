@@ -4,7 +4,10 @@ import { User } from './user.model';
 
 export type PostDocument = HydratedDocument<Post>;
 
-@Schema()
+@Schema({
+  timestamps: true,
+  collection: 'posts',
+})
 // описываем поля схемы
 export class Post {
   // Обозначаем что это свойства
