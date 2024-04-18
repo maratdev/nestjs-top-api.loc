@@ -32,6 +32,10 @@ export class TopPageService {
     return topPage;
   }
 
+  async findAll() {
+    return await this.topPageModel.find({}).exec();
+  }
+
   async delete(id: string) {
     const deletePage = await this.topPageModel.findByIdAndDelete(id).exec();
     if (!deletePage) {

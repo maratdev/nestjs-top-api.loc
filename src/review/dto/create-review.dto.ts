@@ -22,6 +22,7 @@ export class CreateReviewDto {
   })
   @IsNumber()
   rating: number;
+
   @IsOptional()
   @IsMongoId()
   productId: Types.ObjectId;

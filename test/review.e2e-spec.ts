@@ -7,7 +7,7 @@ import { CreateReviewDto } from '../src/review/dto/create-review.dto';
 import { REVIEW_NOT_FOUND } from '../src/review/review.constants';
 import { AuthDto } from '../src/auth/dto/auth.dto';
 
-const productId = new Types.ObjectId().toHexString();
+const productId = new Types.ObjectId();
 const loginDto: AuthDto = {
   login: 'marat@mail.ru',
   password: '12345',

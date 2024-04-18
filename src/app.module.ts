@@ -6,6 +6,8 @@ import { ReviewModule } from './review/review.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { MongooseConfigService } from './config/mongodb/mongo.config';
+import { FilesModule } from './files/files.module';
+import { SitemapModule } from './sitemap/sitemap.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { MongooseConfigService } from './config/mongodb/mongo.config';
     ProductModule,
     ReviewModule,
     UsersModule,
+    FilesModule,
+    SitemapModule,
   ],
 })
 export class AppModule {}
